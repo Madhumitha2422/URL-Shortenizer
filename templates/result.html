@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortened</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('../static/360_F_437535966_BeqAubSzmrhlniUjsJ5NQGj7l7r7yk20.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0; /* Remove default margin */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ensures full-height background */
+            font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Use Comic Sans MS font */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.2); /* Slightly opaque white background */
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            backdrop-filter: blur(5px); /* Apply blur effect to the container */
+            position: relative; /* Set position to relative for absolute positioning */
+        }
+
+        .card {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0); /* Fully transparent */
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background-color: gold; /* Set button color to gold */
+            border-color: gold;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffd700; /* Set hover color to a slightly lighter gold shade */
+            border-color: #ffd700;
+        }
+
+        .card-title,
+        p {
+            color: yellow; /* Set text color to yellow */
+        }
+
+        .card-title a,
+        p a {
+            color: blue; /* Set short URL color to blue */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Highlight the short URL by making it bold */
+        }
+
+        .copy-btn {
+            margin-top: 10px;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            right: 110px; /* Adjusted to be right of the Copy Short URL button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <p><strong>Short URL:</strong> <a href="{{ short_url }}" target="_blank" id="shortUrl">{{ short_url }}</a></p>
+                <button class="btn btn-primary copy-btn" onclick="copyShortUrl()">Copy Short URL</button>
+                <a href="/" class="btn btn-primary back-btn">Back to Homepage</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyShortUrl() {
+            var shortUrlElement = document.getElementById('shortUrl');
+            var textArea = document.createElement("textarea");
+            textArea.value = shortUrlElement.href;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('Short URL copied to clipboard!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('../static/360_F_437535966_BeqAubSzmrhlniUjsJ5NQGj7l7r7yk20.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Ensures full-height background */
+            margin: 0; /* Remove default margin */
+            display: flex;
+            justify-content: flex-start; /* Align somewhat to the left */
+            align-items: center;
+            font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Use Comic Sans MS font */
+        }
+
+        body,
+        input,
+        button {
+            color: gold;
+        }
+
+        input {
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust transparency for input boxes */
+            border: 1px solid gold;
+            border-radius: 5px;
+            padding: 8px;
+        }
+
+        .btn-gold {
+            background-color: gold; /* Set button color to gold */
+            border: 1px solid gold;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            color: #fff; /* Set text color to white for better visibility */
+        }
+
+        .card {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0); /* Fully transparent */
+            padding: 20px;
+            margin-left: 120px; /* Adjust the left margin */
+        }
+
+        .card-title {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1 class="card-title mb-4">  Shortzone URL Minimizer </h1>
+        <form action="/shorten" method="post">
+            <div class="form-group">
+                <label for="long_url">Long URL:</label>
+                <input type="url" class="form-control" id="long_url" name="long_url" required>
+            </div>
+            <div class="form-group">
+                <label for="custom_alias">Custom Alias (optional):</label>
+                <input type="text" class="form-control" id="custom_alias" name="custom_alias">
+            </div>
+            <button type="submit" class="btn-gold">Shorten URL</button>
+        </form>
+    </div>
+</body>
+</html>
